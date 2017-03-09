@@ -22,6 +22,10 @@ public class main {
         }
 
         public static void main(String[] args) {
+            sout();
+        }
+
+        public static void sout(){
             System.out.println("Task A from workbook: in a string find all numbers in Java HEX format.");
             String line = "0xAB asd 0AB 0X1111 0xfffff ABC";
             System.out.println(findAllJavaHexNumbers(line));
