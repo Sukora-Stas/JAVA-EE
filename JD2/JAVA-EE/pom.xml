@@ -28,9 +28,8 @@
         </dependency>
     </dependencies>
 
-
-
           <modules>
     <module>jarModule</module>
+    <module>web</module>
   </modules>
 </project>

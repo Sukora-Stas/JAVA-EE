@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JAVA-EE.iml" filepath="$PROJECT_DIR$/JAVA-EE.iml" />
       <module fileurl="file://$PROJECT_DIR$/jarModule/jarModule.iml" filepath="$PROJECT_DIR$/jarModule/jarModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>
 </project>
