@@ -1,4 +1,4 @@
-package com.pvt.app;
+package com.pvt;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -8,8 +8,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static com.pvt.app.App.isValidSum;
-
+import static com.pvt.App.isValidSum;
 
 
 /**
@@ -34,10 +33,11 @@ public class AppTestTest {
         Assert.assertEquals("Not Valid", true, isValidSum(50));
         Assert.assertEquals("Not Valid", false, isValidSum(51));
     }
+
     @Test
     public void testString() {
         main m = new main();
-        m.sout();
+        main.sout();
         Assert.assertEquals("Task A from workbook: in a string find all numbers in Java HEX format.\n" +
                 "0xAB\n" +
                 "0X1111\n" +

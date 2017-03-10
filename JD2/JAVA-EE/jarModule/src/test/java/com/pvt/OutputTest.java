@@ -1,4 +1,4 @@
-package com.pvt.app;
+package com.pvt;
 
 import org.junit.After;
 import org.junit.Before;

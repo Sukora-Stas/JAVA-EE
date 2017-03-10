@@ -1,4 +1,4 @@
-package com.pvt.app;
+package com.pvt;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
