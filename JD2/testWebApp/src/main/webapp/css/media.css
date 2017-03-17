@@ -1,0 +1,318 @@
+@media all and (max-width: 1340px) {
+    .contener {
+        width: 1100px;
+    }
+
+    .first-btn {
+
+        margin-right: 150px;
+    }
+
+    .header-logo {
+        margin-left: 40px;
+        margin-right: 0;
+    }
+
+    .adapt1 {
+        margin-left: 0;
+    }
+
+    .main-nav {
+        margin-right: 70px;
+        padding: 0
+    }
+
+    .feature-item p {
+        padding: 0 70px 0 70px;
+    }
+
+    .features ul {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .last-btn {
+        margin-right: 100px;
+    }
+
+    .abstract {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .section-title {
+        margin-left: 50px;
+    }
+
+    .rev_btn {
+        width: 450px;
+    }
+
+    .review-item {
+        padding-left: 30px;
+    }
+
+    .popular-items {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .contener table {
+        margin-left: 50px;
+        width: 1000px;
+    }
+
+    .feedback-tip {
+        margin-right: 80px
+    }
+
+    .feedback-form {
+
+        margin: 80px 0 0 80px;
+        padding-right: 550px;
+        height: 600px;
+        background-position: 88% 0;
+    }
+
+    .feedback-form-group label {
+        padding-left: 50px;
+    }
+
+    .feedback-form-group input {
+        margin-left: 50px;
+    }
+
+    .left-m {
+        margin-left: 0;
+
+    }
+
+    .feedback-form-group-align {
+        flex-direction: column;
+    }
+
+    .checkbox-area {
+        margin-left: 50px;
+        padding-left: 0;
+    }
+
+    .feedback-form-group select {
+        margin-left: 50px;
+    }
+
+    .feedback-form-group textarea {
+        margin-left: 50px;
+        height: 300px;
+        clear: both;
+    }
+
+    .item_btn {
+        margin-left: 50px;
+    }
+
+    .footer-top {
+        margin-left: 40px;
+        margin-right: -50px;
+    }
+
+    .footer-middle {
+        margin-right: 100px;
+    }
+
+    .footer-bottom {
+        margin-right: 100px;
+    }
+
+    .map {
+        padding-left: 120px;
+        margin-right: 100px;
+    }
+
+    .map2 {
+        padding-left: 0;
+        margin-right: 100px;
+    }
+}
+
+@media all and (max-width: 1110px) {
+    .cat, .rev, .feeb, .features ul, .header-top, .popular-items, .footer-bottom {
+
+        flex-direction: column;
+
+    }
+
+    .contener {
+        width: 900px;
+
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .header-logo {
+        margin: auto;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        margin: auto;
+
+    }
+
+    .main-nav li {
+        padding: 0;
+    }
+
+    .main-nav li:last-child {
+        margin-bottom: 20px;
+    }
+
+    .first-btn {
+        margin: auto;
+    }
+
+    .promo {
+        padding-top: 70px;
+    }
+
+    .feature-item {
+        width: 700px;
+        margin: auto;
+        border-left: none;
+        border-bottom: solid 1px #d9d9d9;
+    }
+
+    .features li {
+        margin-bottom: 20px;
+    }
+
+    .last-btn {
+        margin-left: 135px;
+    }
+
+    .rev_btn {
+
+        width: 300px;
+    }
+
+    .reviews {
+        margin-top: auto;
+    }
+
+    .FT {
+
+        flex-direction: column;
+    }
+
+    .FT a {
+        margin-top: 30px;
+    }
+
+    .abstract {
+        width: 85%;
+    }
+
+    .reviews-list {
+        margin-left: 95px
+    }
+
+    .popular-and-price h2 {
+        padding: 70px 0 0 80px;
+    }
+
+    .catalog-item {
+        margin: 0 0 40px 85px;
+    }
+
+    .contener table {
+        width: 800px;
+    }
+
+    .feeb p {
+        padding-top: 20px;
+        margin-left: 130px;
+    }
+
+    .feedback-form {
+        width: 300px;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .footer-social a:first-child {
+        margin-left: 0;
+    }
+
+    .map {
+        padding-left: 0;
+    }
+
+    .map2 {
+        padding-left: 0;
+    }
+
+}
+
+@media all and (max-width: 950px) {
+    .contener {
+        width: 800px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .galery img:nth-child(odd) {
+        margin-right: 0;
+    }
+
+    .map {
+        padding-left: 0;
+    }
+
+    .map2 {
+        padding-left: 0;
+    }
+}
+
+@media all and (max-width: 830px) {
+    .contener {
+        width: 700px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .contener table {
+        width: 600px;
+    }
+
+    .feedback-form {
+        background: none;
+        width: 530px;
+    }
+
+    .footer-middle, .footer-bottom {
+        margin-right: 15px;
+    }
+
+    .galery img:nth-child(odd) {
+        margin-right: 0;
+    }
+
+    .map {
+        padding-left: 0;
+        margin-right: 15px;
+    }
+
+    .map2 {
+        padding-left: 0;
+        margin-right: 15px;
+    }
+}
+
+
