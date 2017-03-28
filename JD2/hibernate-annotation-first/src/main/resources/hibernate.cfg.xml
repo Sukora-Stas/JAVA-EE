@@ -12,7 +12,7 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>          <!-- validate-->
 
-        <mapping class="by.belapb.pojo.Person"/>
+        <mapping class="by.academy.it.pojos.Person"/>
     </session-factory>
 </hibernate-configuration>
 
