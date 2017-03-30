@@ -199,7 +199,6 @@ public class MenuLoader {
         System.out.print("Id - ");
         Scanner scanner = new Scanner(System.in);
         Person person = null;
-        User user = null;
         Integer id = scanner.nextInt();
         System.out.println("Please enter new Name:");
         System.out.print("New Name - ");
@@ -207,6 +206,23 @@ public class MenuLoader {
         String name = scanner.nextLine();
         try {
             getPersonDao().flush(id, name);
+        } catch (DaoException e) {
+            log.error("Unable run flush example");
+        }
+    }
+
+    public static void flushSessionUser(){
+        System.out.println("Please enter person id:");
+        System.out.print("Id - ");
+        Scanner scanner = new Scanner(System.in);
+        User user=null;
+        Integer id = scanner.nextInt();
+        System.out.println("Please enter new Name:");
+        System.out.print("New Name - ");
+        scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        try {
+            getUserDao().flush(id, name);
         } catch (DaoException e) {
             log.error("Unable run flush example");
         }
