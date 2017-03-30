@@ -84,10 +84,6 @@ public class MenuLoader {
         System.out.println("        9. Update User");
         System.out.println("        10. Load User");
         System.out.println("        11. Flush example User");
-
-
-        System.out.println("        7. create user");
-        System.out.println("        8. find user");
     }
 
     public static Person createPerson(Person person) {
@@ -125,7 +121,6 @@ public class MenuLoader {
         parameter = scanner.nextLine();
         user.setLastName(parameter);
         System.out.print("age - ");
-        parameter = scanner.nextLine();
         user.setAge(scanner.nextInt());
         return user;
     }
