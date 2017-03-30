@@ -1,8 +1,10 @@
 package by.academy.it.loader;
 
 import by.academy.it.db.PersonDao;
+import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.Person;
+import by.academy.it.pojos.User;
 import org.apache.log4j.Logger;
 
 import java.util.Scanner;
@@ -16,16 +18,19 @@ public class MenuLoader {
     private static Logger log = Logger.getLogger(MenuLoader.class);
     public static Boolean needMenu = true;
     private static PersonDao personDao = null;
+    private static UserDao userDao = null;
 
     public static void menu() throws DaoException {
         Person person = null;
+        User user = null;
         while (needMenu) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
             switch (choice) {
                 case 0:
-                    System.exit(0); break;
+                    System.exit(0);
+                    break;
                 case 1:
                     break;
                 case 2:
@@ -46,6 +51,15 @@ public class MenuLoader {
                 case 6:
                     flushSession();
                     break;
+                case 7:
+                    user = null;
+                    user = createUser(user);
+                    getUserDao().saveOrUpdate(user);
+                    break;
+                case 8:
+                    user = findUser();
+                    break;
+
             }
             needMenu = true;
         }
@@ -60,13 +74,17 @@ public class MenuLoader {
         System.out.println("        4. Update Person");
         System.out.println("        5. Load Person");
         System.out.println("        6. Flush example");
+        System.out.println("        7. create user");
+        System.out.println("        8. find user");
     }
 
     public static Person createPerson(Person person) {
         System.out.println("Please enter person description:");
         System.out.print("Name - ");
 
-        if(person == null) {person = new Person();}
+        if (person == null) {
+            person = new Person();
+        }
         Scanner scanner = new Scanner(System.in);
         String parameter = scanner.nextLine();
         person.setName(parameter);
@@ -76,6 +94,28 @@ public class MenuLoader {
         System.out.print("Age - ");
         person.setAge(scanner.nextInt());
         return person;
+    }
+
+    public static User createUser(User user) {
+        System.out.println("Please enter person description:");
+        System.out.print("Name - ");
+
+        if (user == null) {
+            user = new User();
+        }
+        Scanner scanner = new Scanner(System.in);
+        String parameter = scanner.nextLine();
+        user.setName(parameter);
+        System.out.print("Surname - ");
+        parameter = scanner.nextLine();
+        user.setSurname(parameter);
+        System.out.print("lastname - ");
+        parameter = scanner.nextLine();
+        user.setLastName(parameter);
+        System.out.print("age - ");
+        parameter = scanner.nextLine();
+        user.setAge(scanner.nextInt());
+        return user;
     }
 
     public static Person findPerson() {
@@ -96,6 +136,27 @@ public class MenuLoader {
         return person;
     }
 
+    public static User findUser() {
+        System.out.println("Get by Id. Please enter person id:");
+        System.out.print("Id - ");
+        Scanner scanner = new Scanner(System.in);
+        User user = null;
+
+        Integer id = scanner.nextInt();
+        try {
+            user = getUserDao().get(id);
+        } catch (DaoException e) {
+
+            log.error(e, e);
+        } catch (NullPointerException e) {
+            log.error("Unable find person:", e);
+        }
+        System.out.print(user);
+
+        return user;
+
+    }
+
     public static Person loadPerson() {
         System.out.println("Load by Id. Please enter person id:");
         System.out.print("Id - ");
@@ -114,11 +175,31 @@ public class MenuLoader {
         return person;
     }
 
+    public static User loadUser() {
+        System.out.println("Load by Id. Please enter person id:");
+        System.out.print("Id - ");
+
+        Scanner scanner = new Scanner(System.in);
+        User user = null;
+        Integer id = scanner.nextInt();
+        try {
+            user = getUserDao().get(id);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            log.error("Unable find person:", e);
+        }
+        System.out.println(user);
+
+        return user;
+    }
+
     public static void flushSession() {
         System.out.println("Please enter person id:");
         System.out.print("Id - ");
         Scanner scanner = new Scanner(System.in);
         Person person = null;
+        User user = null;
         Integer id = scanner.nextInt();
         System.out.println("Please enter new Name:");
         System.out.print("New Name - ");
@@ -136,5 +217,12 @@ public class MenuLoader {
             personDao = new PersonDao();
         }
         return personDao;
+    }
+
+    public static UserDao getUserDao() {
+        if (userDao == null) {
+            userDao = new UserDao();
+        }
+        return userDao;
     }
 }

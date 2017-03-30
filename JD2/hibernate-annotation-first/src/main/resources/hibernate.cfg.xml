@@ -13,6 +13,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>          <!-- validate-->
 
         <mapping class="by.academy.it.pojos.Person"/>
+        <mapping class="by.academy.it.pojos.User"/>
     </session-factory>
 </hibernate-configuration>
 

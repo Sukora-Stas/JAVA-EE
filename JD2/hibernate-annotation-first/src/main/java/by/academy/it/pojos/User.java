@@ -1,14 +1,14 @@
 package by.academy.it.pojos;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by Sukora Stas.
  */
+
+@Entity
+@Table
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

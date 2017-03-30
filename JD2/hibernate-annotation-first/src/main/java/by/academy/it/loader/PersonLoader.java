@@ -1,5 +1,6 @@
 package by.academy.it.loader;
 import by.academy.it.pojos.Person;
+import by.academy.it.pojos.User;
 import by.academy.it.util.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -15,8 +16,11 @@ public class PersonLoader {
         Locale.setDefault(Locale.US);
         util = HibernateUtil.getHibernateUtil();
         Person person = new Person(null, 35, "Yuli", "Slabko");
+        User user = new User(19,"Stas","Sukora","Igorevich");
         Session session = util.getSession();
         session.saveOrUpdate(person);
+
+        session.saveOrUpdate(user);
         System.out.println("Start Menu");
         menu();
     }
