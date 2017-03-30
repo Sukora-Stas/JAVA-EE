@@ -9,11 +9,6 @@ import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
-/**
- * User: yslabko
- * Date: 14.04.14
- * Time: 12:28
- */
 public class MenuLoader {
     private static Logger log = Logger.getLogger(MenuLoader.class);
     public static Boolean needMenu = true;
@@ -52,14 +47,23 @@ public class MenuLoader {
                     flushSession();
                     break;
                 case 7:
+                    user = findUser();
+                    break;
+                case 8:
                     user = null;
                     user = createUser(user);
                     getUserDao().saveOrUpdate(user);
                     break;
-                case 8:
-                    user = findUser();
+                case 9:
+                    user = createUser(user);
+                    getUserDao().saveOrUpdate(user);
                     break;
-
+                case 10:
+                    user = loadUser();
+                    break;
+                case 11:
+                    flushSessionUser();
+                    break;
             }
             needMenu = true;
         }
@@ -74,6 +78,14 @@ public class MenuLoader {
         System.out.println("        4. Update Person");
         System.out.println("        5. Load Person");
         System.out.println("        6. Flush example");
+        System.out.println("                         ");
+        System.out.println("        7. Get User");
+        System.out.println("        8. Save User");
+        System.out.println("        9. Update User");
+        System.out.println("        10. Load User");
+        System.out.println("        11. Flush example User");
+
+
         System.out.println("        7. create user");
         System.out.println("        8. find user");
     }
@@ -211,11 +223,11 @@ public class MenuLoader {
         }
     }
 
-    public static void flushSessionUser(){
+    public static void flushSessionUser() {
         System.out.println("Please enter person id:");
         System.out.print("Id - ");
         Scanner scanner = new Scanner(System.in);
-        User user=null;
+        User user = null;
         Integer id = scanner.nextInt();
         System.out.println("Please enter new Name:");
         System.out.print("New Name - ");
