@@ -1,6 +1,5 @@
 package by.academy.it.db;
 
-import by.academy.it.db.Services.AutoInsert;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.ATM;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -47,7 +46,7 @@ public class AtmDao extends BaseDao<ATM> {
                         "jdbc:mysql://127.0.0.1:2016/personDB",
                         "root","");
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AutoInsert.class.getName()).log(Level.SEVERE,
+                java.util.logging.Logger.getLogger(ATM.class.getName()).log(Level.SEVERE,
                         null, ex);
             }
 
@@ -67,6 +66,8 @@ public class AtmDao extends BaseDao<ATM> {
             Row row;
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = (Row) sheet.getRow(i);
+
+                Integer bik = ;
                 String name = row.getCell(0).getStringCellValue();
                 String add = row.getCell(1).getStringCellValue();
 
