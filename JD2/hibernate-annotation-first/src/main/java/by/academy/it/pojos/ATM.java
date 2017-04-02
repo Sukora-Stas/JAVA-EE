@@ -39,7 +39,7 @@ public class ATM implements Serializable {
 
     }
 
-    public ATM(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, Boolean issuance_of_currency, String terminal_ID, Float coordinats) {
+    public ATM(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, Boolean issuance_of_currency, String terminal_ID, String coordinats) {
         this.BIK = BIK;
         Names_of_divisions = names_of_divisions;
         Region = region;
@@ -136,11 +136,11 @@ public class ATM implements Serializable {
         Terminal_ID = terminal_ID;
     }
 
-    public Float getCoordinats() {
+    public String getCoordinats() {
         return Coordinats;
     }
 
-    public void setCoordinats(Float coordinats) {
+    public void setCoordinats(String coordinats) {
         Coordinats = coordinats;
     }
 
@@ -195,7 +195,7 @@ public class ATM implements Serializable {
                 ", WorkingTime='" + WorkingTime + '\'' +
                 ", Issuance_of_currency=" + Issuance_of_currency +
                 ", Terminal_ID='" + Terminal_ID + '\'' +
-                ", Coordinats=" + Coordinats +
+                ", Coordinats='" + Coordinats + '\'' +
                 '}';
     }
 }
