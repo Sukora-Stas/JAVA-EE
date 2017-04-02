@@ -35,7 +35,7 @@ public class AtmDao extends BaseDao<ATM> {
                       String coordinats)
             throws DaoException {
 
-        try{
+        try {
             System.out.println("------- Проверка подключения к MySQL -------");
 
             Connection connection = null;
@@ -44,13 +44,13 @@ public class AtmDao extends BaseDao<ATM> {
                 DriverManager.registerDriver(driver);
                 connection = DriverManager.getConnection(
                         "jdbc:mysql://127.0.0.1:2016/personDB",
-                        "root","");
+                        "root", "");
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(ATM.class.getName()).log(Level.SEVERE,
                         null, ex);
             }
 
-            if(null != connection) {
+            if (null != connection) {
                 System.out.println("------- Подключение установлено -------");
             } else {
                 System.out.println("------- Подключение НЕ установлено -------");
@@ -67,16 +67,29 @@ public class AtmDao extends BaseDao<ATM> {
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = (Row) sheet.getRow(i);
 
-                Integer bik = ;
-                String name = row.getCell(0).getStringCellValue();
-                String add = row.getCell(1).getStringCellValue();
+                double bik = row.getCell(0).getNumericCellValue();
 
-                String contact = row.getCell(2).getStringCellValue();
+                String namesofdivisions = row.getCell(1).getStringCellValue();
 
-                String email = row.getCell(3).getStringCellValue();
+                String reg = row.getCell(2).getStringCellValue();
 
-                String sql = "INSERT INTO employee (name, address, contactNo, email) VALUES('" + name + "','" + add + "','" + contact + "','" + email + "')";
-                pstm = connection.prepareStatement(sql);
+                String loc = row.getCell(2).getStringCellValue();
+
+                String addr = row.getCell(2).getStringCellValue();
+
+                String pos = row.getCell(2).getStringCellValue();
+                ;
+
+                String workanme = row.getCell(2).getStringCellValue();
+
+                Boolean valuta = row.getCell(2).getBooleanCellValue();
+
+                String terminal = row.getCell(2).getStringCellValue();
+
+                double coord = row.getCell(2).getNumericCellValue();
+
+                // String sql = "INSERT INTO employee (name, address, contactNo, email) VALUES('" + name + "','" + add + "','" + contact + "','" + email + "')";
+                // pstm = connection.prepareStatement(sql);
                 pstm.execute();
                 System.out.println("Import rows " + i);
             }
@@ -87,10 +100,10 @@ public class AtmDao extends BaseDao<ATM> {
             System.out.println("Success import excel to mysql table");
 
 
-        }catch (HibernateException e){
+        } catch (HibernateException e) {
             log.error("Error Flush person" + e);
             throw new DaoException(e);
-        }catch (IOException e) {
+        } catch (IOException e) {
         } catch (SQLException e) {
             e.printStackTrace();
         }
