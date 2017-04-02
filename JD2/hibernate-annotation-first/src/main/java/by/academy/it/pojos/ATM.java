@@ -17,7 +17,7 @@ public class ATM implements Serializable {
     @Column
     private Integer BIK;
     @Column
-    private String Names_of_divisions ;
+    private String Names_of_divisions;
     @Column
     private String Region;
     @Column
@@ -35,7 +35,7 @@ public class ATM implements Serializable {
     @Column
     private String Coordinats;
 
-    public ATM(){
+    public ATM() {
 
     }
 
