@@ -73,23 +73,32 @@ public class AtmDao extends BaseDao<ATM> {
 
                 String reg = row.getCell(2).getStringCellValue();
 
-                String loc = row.getCell(2).getStringCellValue();
+                String loc = row.getCell(3).getStringCellValue();
 
-                String addr = row.getCell(2).getStringCellValue();
+                String addr = row.getCell(4).getStringCellValue();
 
-                String pos = row.getCell(2).getStringCellValue();
-                ;
+                String pos = row.getCell(5).getStringCellValue();
 
-                String workanme = row.getCell(2).getStringCellValue();
+                String workanme = row.getCell(6).getStringCellValue();
 
-                Boolean valuta = row.getCell(2).getBooleanCellValue();
+                Boolean valuta = row.getCell(7).getBooleanCellValue();
 
-                String terminal = row.getCell(2).getStringCellValue();
+                String terminal = row.getCell(8).getStringCellValue();
 
-                double coord = row.getCell(2).getNumericCellValue();
+                double coord = row.getCell(9).getNumericCellValue();
 
-                // String sql = "INSERT INTO employee (name, address, contactNo, email) VALUES('" + name + "','" + add + "','" + contact + "','" + email + "')";
-                // pstm = connection.prepareStatement(sql);
+                String sql = "INSERT INTO ATM  VALUES(" + bik + ",'"
+                        + namesofdivisions + "','"
+                        + reg + "','"
+                        + loc + "','"
+                        + addr + "','"
+                        + pos + "','"
+                        + workanme + "','"
+                        + valuta + "','"
+                        + terminal + "','"
+                        + coordinats
+                        + "')";
+                pstm = connection.prepareStatement(sql);
                 pstm.execute();
                 System.out.println("Import rows " + i);
             }

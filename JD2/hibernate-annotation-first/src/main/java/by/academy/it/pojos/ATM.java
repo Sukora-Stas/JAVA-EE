@@ -33,7 +33,7 @@ public class ATM implements Serializable {
     @Column
     private String Terminal_ID;
     @Column
-    private Float Coordinats;
+    private String Coordinats;
 
     public ATM() {
 
