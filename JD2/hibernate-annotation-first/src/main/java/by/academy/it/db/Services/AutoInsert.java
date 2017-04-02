@@ -1,8 +1,6 @@
 package by.academy.it.db.Services;
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
-import org.apache.poi.hssf.extractor.ExcelExtractor;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -11,7 +9,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * Created by Sukora Stas.
  */
-public class TestApp {
+public class AutoInsert {
 
     public static void main(String[] args) throws Exception {
 
@@ -35,7 +32,7 @@ public class TestApp {
                         "jdbc:mysql://127.0.0.1:2016/test",
                         "root","");
             } catch (SQLException ex) {
-                Logger.getLogger(TestApp.class.getName()).log(Level.SEVERE,
+                Logger.getLogger(AutoInsert.class.getName()).log(Level.SEVERE,
                         null, ex);
             }
 
