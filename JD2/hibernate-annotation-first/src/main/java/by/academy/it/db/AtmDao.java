@@ -23,16 +23,18 @@ public class AtmDao extends BaseDao<ATM> {
 
     private static Logger log = Logger.getLogger(AtmDao.class);
 
-    public void flush(Integer BIK,
-                      String names_of_divisions,
-                      String region,
-                      String locality,
-                      String addres,
-                      String position,
-                      String workingTime,
-                      Boolean issuance_of_currency,
-                      String terminal_ID,
-                      String coordinats)
+    public void flush(
+//            Integer BIK,
+//                      String names_of_divisions,
+//                      String region,
+//                      String locality,
+//                      String addres,
+//                      String position,
+//                      String workingTime,
+//                      Boolean issuance_of_currency,
+//                      String terminal_ID,
+//                      String coordinats
+    )
             throws DaoException {
 
         try {
@@ -96,8 +98,7 @@ public class AtmDao extends BaseDao<ATM> {
                         + workanme + "','"
                         + valuta + "','"
                         + terminal + "','"
-                        + coordinats
-                        + "')";
+                        + coord + "')";
                 pstm = connection.prepareStatement(sql);
                 pstm.execute();
                 System.out.println("Import rows " + i);

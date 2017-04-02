@@ -1,5 +1,6 @@
 package by.academy.it.loader;
 
+import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
@@ -14,6 +15,7 @@ public class MenuLoader {
     public static Boolean needMenu = true;
     private static PersonDao personDao = null;
     private static UserDao userDao = null;
+    private static AtmDao atmDao = null;
 
     public static void menu() throws DaoException {
         Person person = null;
@@ -64,6 +66,9 @@ public class MenuLoader {
                 case 11:
                     flushSessionUser();
                     break;
+                case 12:
+
+                    break;
             }
             needMenu = true;
         }
@@ -84,6 +89,8 @@ public class MenuLoader {
         System.out.println("        9. Update User");
         System.out.println("        10. Load User");
         System.out.println("        11. Flush example User");
+        System.out.println();
+        System.out.println("        2. test table ATM");
     }
 
     public static Person createPerson(Person person) {
@@ -247,5 +254,12 @@ public class MenuLoader {
             userDao = new UserDao();
         }
         return userDao;
+    }
+
+    public static AtmDao getAtmDao() {
+        if (atmDao == null) {
+            atmDao = new AtmDao();
+        }
+        return atmDao;
     }
 }
