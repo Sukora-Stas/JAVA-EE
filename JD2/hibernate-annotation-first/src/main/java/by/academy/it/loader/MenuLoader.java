@@ -4,6 +4,7 @@ import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
+import by.academy.it.pojos.ATM;
 import by.academy.it.pojos.Person;
 import by.academy.it.pojos.User;
 import org.apache.log4j.Logger;
@@ -20,6 +21,7 @@ public class MenuLoader {
     public static void menu() throws DaoException {
         Person person = null;
         User user = null;
+        ATM atm = null;
         while (needMenu) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
@@ -130,6 +132,14 @@ public class MenuLoader {
         System.out.print("age - ");
         user.setAge(scanner.nextInt());
         return user;
+    }
+
+    public static ATM createATM(ATM atm) {
+        if (atm == null) {
+            atm = new ATM();
+        }
+
+        return atm;
     }
 
     public static Person findPerson() {

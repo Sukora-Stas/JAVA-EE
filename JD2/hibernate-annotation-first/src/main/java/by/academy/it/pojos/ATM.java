@@ -52,6 +52,7 @@ public class ATM implements Serializable {
         Coordinats = coordinats;
     }
 
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
