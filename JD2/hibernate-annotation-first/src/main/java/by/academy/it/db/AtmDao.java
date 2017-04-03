@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,19 +24,23 @@ public class AtmDao extends BaseDao<ATM> {
 
     private static Logger log = Logger.getLogger(AtmDao.class);
 
-//    public void flush(
-////            Integer BIK,
-////                      String names_of_divisions,
-////                      String region,
-////                      String locality,
-////                      String addres,
-////                      String position,
-////                      String workingTime,
-////                      Boolean issuance_of_currency,
-////                      String terminal_ID,
-////                      String coordinats
-//    )
-//            throws DaoException {
+    public void flush(
+            Integer BIK,
+                      String names_of_divisions,
+                      String region,
+                      String locality,
+                      String addres,
+                      String position,
+                      String workingTime,
+                      Boolean issuance_of_currency,
+                      String terminal_ID,
+                      String coordinats
+    )
+            throws DaoException {
+
+
+
+
 //
 //        try {
 //            System.out.println("------- Проверка подключения к MySQL -------");
@@ -117,8 +122,8 @@ public class AtmDao extends BaseDao<ATM> {
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
-//
-//
-//    }
+
+
+    }
 
 }

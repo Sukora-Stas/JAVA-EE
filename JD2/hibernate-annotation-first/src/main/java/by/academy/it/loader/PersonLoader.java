@@ -13,7 +13,6 @@ import java.util.Locale;
 import static by.academy.it.loader.MenuLoader.menu;
 public class PersonLoader {
     public static HibernateUtil util = null;
-    private static final String path = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
     public static void main(String[] args) throws Exception {
 
         Locale.setDefault(Locale.US);

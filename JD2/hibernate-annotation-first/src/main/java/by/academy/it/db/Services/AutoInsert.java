@@ -12,40 +12,37 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by Sukora Stas.
  */
 public class AutoInsert {
-
-    String sql=null;
-    public void Insert(String path) throws Exception{
+    private static final String path = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
+    public String Insert(String sql) throws Exception{
 
         try {
 
-//            System.out.println("------- Проверка подключения к MySQL -------");
-//
-//            Connection connection = null;
-//            try {
-//                Driver driver = new FabricMySQLDriver();
-//                DriverManager.registerDriver(driver);
-//                connection = DriverManager.getConnection(
-//                        "jdbc:mysql://127.0.0.1:2016/test",
-//                        "root", "");
-//            } catch (SQLException ex) {
-//                java.util.logging.Logger.getLogger(ATM.class.getName()).log(Level.SEVERE,
-//                        null, ex);
-//            }
-//
-//            if (null != connection) {
-//                System.out.println("------- Подключение установлено -------");
-//            } else {
-//                System.out.println("------- Подключение НЕ установлено -------");
-//            }
-//
-//            connection.setAutoCommit(false);
+            System.out.println("------- Проверка подключения к MySQL -------");
 
+            Connection connection = null;
+            try {
+                Driver driver = new FabricMySQLDriver();
+                DriverManager.registerDriver(driver);
+                connection = DriverManager.getConnection(
+                        "jdbc:mysql://127.0.0.1:2016/test",
+                        "root", "");
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(ATM.class.getName()).log(Level.SEVERE,
+                        null, ex);
+            }
+
+            if (null != connection) {
+                System.out.println("------- Подключение установлено -------");
+            } else {
+                System.out.println("------- Подключение НЕ установлено -------");
+            }
+
+            connection.setAutoCommit(false);
 
             PreparedStatement pstm = null;
             FileInputStream input = new FileInputStream(path);
@@ -77,7 +74,7 @@ public class AutoInsert {
 
                 String coord = row.getCell(9).getStringCellValue();
 
-                sql = "INSERT INTO ATM  VALUES(" + bik + ",'"
+               sql = "INSERT INTO ATM  VALUES(" + bik + ",'"
                         + namesofdivisions + "','"
                         + reg + "','"
                         + loc + "','"
@@ -91,6 +88,7 @@ public class AutoInsert {
                // pstm = connection.prepareStatement(sql);
                // pstm.execute();
                 System.out.println("Import rows " + i);
+                System.out.println(sql);
                // return sql;
             }
 //            connection.commit();
@@ -121,7 +119,7 @@ public class AutoInsert {
 
 
 //            <--------------------------------------------------->
-//        return sql;
+        return sql;
        // return path;
     }
 

@@ -2,6 +2,8 @@ package by.academy.it.loader;
 
 import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
+import by.academy.it.db.Services.AutoInsert;
+import by.academy.it.db.Services.AutoInsert3;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.ATM;
@@ -17,8 +19,9 @@ public class MenuLoader {
     private static PersonDao personDao = null;
     private static UserDao userDao = null;
     private static AtmDao atmDao = null;
+    public static String sql=null;
 
-    public static void menu() throws DaoException {
+    public static void menu() throws Exception {
         Person person = null;
         User user = null;
         ATM atm = null;
@@ -69,7 +72,8 @@ public class MenuLoader {
                     flushSessionUser();
                     break;
                 case 12:
-
+                    AutoInsert3 insert3 = new AutoInsert3();
+                    insert3.Insert();
                     break;
             }
             needMenu = true;
@@ -92,7 +96,7 @@ public class MenuLoader {
         System.out.println("        10. Load User");
         System.out.println("        11. Flush example User");
         System.out.println();
-        System.out.println("        2. test table ATM");
+        System.out.println("        12. test table ATM");
     }
 
     public static Person createPerson(Person person) {
@@ -134,10 +138,35 @@ public class MenuLoader {
         return user;
     }
 
-    public static ATM createATM(ATM atm) {
+
+    public static ATM createATM(ATM atm,
+                                Integer BIK,
+                                String names_of_divisions,
+                                String region,
+                                String locality,
+                                String addres,
+                                String position,
+                                String workingTime,
+                                Boolean issuance_of_currency,
+                                String terminal_ID,
+                                String coordinats
+    ) throws Exception {
+
         if (atm == null) {
             atm = new ATM();
         }
+atm.setBIK(BIK);
+
+        atm.setNames_of_divisions(names_of_divisions);
+
+        atm.setRegion(region);
+
+        atm.setLocality(locality);
+
+        atm.setAddres(addres);
+
+        atm.setPosition();
+
 
         return atm;
     }
