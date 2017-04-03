@@ -74,6 +74,9 @@ public class MenuLoader {
                     AutoInsert3 insert3 = new AutoInsert3();
                     insert3.Insert();
                     break;
+                case 13:
+                    atm = findATM();
+                    break;
             }
             needMenu = true;
         }
@@ -95,7 +98,8 @@ public class MenuLoader {
         System.out.println("        10. Load User");
         System.out.println("        11. Flush example User");
         System.out.println();
-        System.out.println("        12. test table ATM");
+        System.out.println("        12. auto insert ATM");
+        System.out.println("        13. find ATM");
     }
 
     public static Person createPerson(Person person) {
@@ -197,7 +201,7 @@ public class MenuLoader {
     }
 
     public static User findUser() {
-        System.out.println("Get by Id. Please enter person id:");
+        System.out.println("Get by Id. Please enter user id:");
         System.out.print("Id - ");
         Scanner scanner = new Scanner(System.in);
         User user = null;
@@ -215,6 +219,26 @@ public class MenuLoader {
 
         return user;
 
+    }
+
+    public static ATM findATM() {
+        System.out.println("Get by Id. Please enter user id:");
+        System.out.print("Id - ");
+        Scanner scanner = new Scanner(System.in);
+
+        ATM atm = new ATM();
+
+        Integer id = scanner.nextInt();
+        try {
+            atm = getAtmDao().get(id);
+        } catch (DaoException e) {
+
+            log.error(e, e);
+        } catch (NullPointerException e) {
+            log.error("Unable find person:", e);
+        }
+        System.out.print(atm);
+        return atm;
     }
 
     public static Person loadPerson() {
