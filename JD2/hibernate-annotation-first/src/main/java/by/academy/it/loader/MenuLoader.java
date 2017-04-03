@@ -2,7 +2,6 @@ package by.academy.it.loader;
 
 import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
-import by.academy.it.db.Services.AutoInsert;
 import by.academy.it.db.Services.AutoInsert3;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
@@ -19,7 +18,7 @@ public class MenuLoader {
     private static PersonDao personDao = null;
     private static UserDao userDao = null;
     private static AtmDao atmDao = null;
-    public static String sql=null;
+    public static String sql = null;
 
     public static void menu() throws Exception {
         Person person = null;
@@ -140,14 +139,14 @@ public class MenuLoader {
 
 
     public static ATM createATM(ATM atm,
-                                Integer BIK,
+                                String BIK,
                                 String names_of_divisions,
                                 String region,
                                 String locality,
                                 String addres,
                                 String position,
                                 String workingTime,
-                                Boolean issuance_of_currency,
+                                String issuance_of_currency,
                                 String terminal_ID,
                                 String coordinats
     ) throws Exception {
@@ -155,7 +154,7 @@ public class MenuLoader {
         if (atm == null) {
             atm = new ATM();
         }
-atm.setBIK(BIK);
+        atm.setBIK(Integer.valueOf(BIK));
 
         atm.setNames_of_divisions(names_of_divisions);
 
@@ -165,7 +164,15 @@ atm.setBIK(BIK);
 
         atm.setAddres(addres);
 
-        atm.setPosition();
+        atm.setPosition(position);
+
+        atm.setWorkingTime(workingTime);
+
+        atm.setIssuance_of_currency(Boolean.valueOf(issuance_of_currency));
+
+        atm.setTerminal_ID(terminal_ID);
+
+        atm.setCoordinats(coordinats);
 
 
         return atm;
