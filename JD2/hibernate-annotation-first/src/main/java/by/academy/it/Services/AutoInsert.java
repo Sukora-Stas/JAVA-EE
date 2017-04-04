@@ -24,8 +24,6 @@ public class AutoInsert {
     public void Insert(String path, int number) throws Exception {
         ATM atm = null;
         INF inf = null;
-        //String Svaluta = null;
-
         Boolean valuta = null;
         try {
             FileInputStream input = new FileInputStream(path);
@@ -51,13 +49,7 @@ public class AutoInsert {
 
                 String workanme = row.getCell(6).getStringCellValue();
 
-//                Boolean valuta = Boolean.valueOf(row.getCell(7).getStringCellValue());
-
                 String s = row.getCell(7).getStringCellValue();
-
-//                System.out.println("valute=  "+valuta);
-
-//                System.out.println("TEST outPut"+s);
 
                 String terminal = row.getCell(8).getStringCellValue();
 
@@ -68,7 +60,7 @@ public class AutoInsert {
                     } else if ("0".equals(s)) {
                         valuta = false;
                     }
-//                    Session session = util.getSession();
+
                     atm = null;
                     atm = createATM(atm, bik, namesofdivisions, reg, loc, addr, pos, workanme, valuta, terminal, coord);
                     getAtmDao().saveOrUpdate(atm);
