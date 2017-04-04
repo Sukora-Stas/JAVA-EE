@@ -2,7 +2,7 @@ package by.academy.it.loader;
 
 import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
-import by.academy.it.db.Services.AutoInsert3;
+import by.academy.it.db.Services.AutoInsert;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.ATM;
@@ -71,8 +71,8 @@ public class MenuLoader {
                     flushSessionUser();
                     break;
                 case 12:
-                    AutoInsert3 insert3 = new AutoInsert3();
-                    insert3.Insert();
+                    AutoInsert insert = new AutoInsert();
+                    insert.Insert();
                     break;
                 case 13:
                     atm = findATM();

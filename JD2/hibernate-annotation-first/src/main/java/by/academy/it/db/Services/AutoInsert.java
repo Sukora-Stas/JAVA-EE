@@ -1,7 +1,6 @@
 package by.academy.it.db.Services;
 
 import by.academy.it.pojos.ATM;
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -10,41 +9,19 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.*;
-import java.util.logging.Level;
+
+import static by.academy.it.loader.MenuLoader.createATM;
+import static by.academy.it.loader.MenuLoader.getAtmDao;
 
 /**
  * Created by Sukora Stas.
  */
 public class AutoInsert {
     private static final String path = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
-    public String Insert(String sql) throws Exception{
 
+    public void Insert() throws Exception {
+        ATM atm = null;
         try {
-
-            System.out.println("------- Проверка подключения к MySQL -------");
-
-            Connection connection = null;
-            try {
-                Driver driver = new FabricMySQLDriver();
-                DriverManager.registerDriver(driver);
-                connection = DriverManager.getConnection(
-                        "jdbc:mysql://127.0.0.1:2016/test",
-                        "root", "");
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(ATM.class.getName()).log(Level.SEVERE,
-                        null, ex);
-            }
-
-            if (null != connection) {
-                System.out.println("------- Подключение установлено -------");
-            } else {
-                System.out.println("------- Подключение НЕ установлено -------");
-            }
-
-            connection.setAutoCommit(false);
-
-            PreparedStatement pstm = null;
             FileInputStream input = new FileInputStream(path);
             POIFSFileSystem fs = new POIFSFileSystem(input);
             Workbook workbook;
@@ -74,53 +51,16 @@ public class AutoInsert {
 
                 String coord = row.getCell(9).getStringCellValue();
 
-               sql = "INSERT INTO ATM  VALUES(" + bik + ",'"
-                        + namesofdivisions + "','"
-                        + reg + "','"
-                        + loc + "','"
-                        + addr + "','"
-                        + pos + "','"
-                        + workanme + "','"
-                        + valuta + "','"
-                        + terminal + "','"
-                        + coord + "')";
-
-               // pstm = connection.prepareStatement(sql);
-               // pstm.execute();
+                atm = null;
+                atm = createATM(atm, bik, namesofdivisions, reg, loc, addr, pos, workanme, valuta, terminal, coord);
+                getAtmDao().saveOrUpdate(atm);
                 System.out.println("Import rows " + i);
-                System.out.println(sql);
-               // return sql;
             }
-//            connection.commit();
-//            pstm.close();
-//            connection.close();
-//            input.close();
             System.out.println("Success import excel to mysql table");
-
-
-//            <--------------------------------------------------->
-
-
-
-//            InputStream in = new FileInputStream("C:\\Users\\stasi\\Downloads\\www_ATM.xls");
-//            // Внимание InputStream будет закрыт
-//            // Если нужно не закрывающий см. JavaDoc по POIFSFileSystem :  http://goo.gl/1Auu7
-//            HSSFWorkbook wb = new HSSFWorkbook(in);
-//
-//            ExcelExtractor extractor = new ExcelExtractor(wb);
-//            extractor.setFormulasNotResults(false); // Считать формулы
-//            extractor.setIncludeSheetNames(true);
-//            String text = extractor.getText();
-//
-//            System.out.println(text);
 
         } catch (IOException e) {
         }
 
-
-//            <--------------------------------------------------->
-        return sql;
-       // return path;
     }
 
 
