@@ -1,11 +1,13 @@
 package by.academy.it.loader;
 
 import by.academy.it.db.AtmDao;
+import by.academy.it.db.INFDao;
 import by.academy.it.db.PersonDao;
 import by.academy.it.Services.AutoInsert;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.ATM;
+import by.academy.it.pojos.INF;
 import by.academy.it.pojos.Person;
 import by.academy.it.pojos.User;
 import org.apache.log4j.Logger;
@@ -18,6 +20,8 @@ public class MenuLoader {
     private static PersonDao personDao = null;
     private static UserDao userDao = null;
     private static AtmDao atmDao = null;
+    private static INFDao infDao = null;
+
     public static String sql = null;
 
     public static void menu() throws Exception {
@@ -141,6 +145,43 @@ public class MenuLoader {
         return user;
     }
 
+    public static INF createINF(INF inf,
+                                String BIK,
+                                String names_of_divisions,
+                                String region,
+                                String locality,
+                                String addres,
+                                String position,
+                                String workingTime,
+                                Boolean issuance_of_currency,
+                                String terminal_ID,
+                                String coordinats
+    ) throws Exception {
+        if (inf == null) {
+            inf = new INF();
+        }
+        inf.setBIK(Integer.valueOf(BIK));
+
+        inf.setNames_of_divisions(names_of_divisions);
+
+        inf.setRegion(region);
+
+        inf.setLocality(locality);
+
+        inf.setAddres(addres);
+
+        inf.setPosition(position);
+
+        inf.setWorkingTime(workingTime);
+
+        inf.setCash_in(issuance_of_currency);
+
+        inf.setTerminal_ID(terminal_ID);
+
+        inf.setCoordinats(coordinats);
+
+        return inf;
+    }
 
     public static ATM createATM(ATM atm,
                                 String BIK,
@@ -331,5 +372,12 @@ public class MenuLoader {
             atmDao = new AtmDao();
         }
         return atmDao;
+    }
+
+    public static INFDao getInfDao() {
+        if (infDao == null) {
+            infDao = new INFDao();
+        }
+        return infDao;
     }
 }
