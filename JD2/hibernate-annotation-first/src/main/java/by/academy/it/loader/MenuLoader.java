@@ -22,12 +22,16 @@ public class MenuLoader {
     private static AtmDao atmDao = null;
     private static INFDao infDao = null;
 
+    private static String pathATM = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
+    private static String pathINF = "C:\\Users\\stasi\\Downloads\\www_INF.xls";
+
     public static String sql = null;
 
     public static void menu() throws Exception {
         Person person = null;
         User user = null;
         ATM atm = null;
+        INF inf = null;
         while (needMenu) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
@@ -76,10 +80,16 @@ public class MenuLoader {
                     break;
                 case 12:
                     AutoInsert insert = new AutoInsert();
-                    insert.Insert();
+                    insert.Insert(pathATM);
                     break;
                 case 13:
                     atm = findATM();
+                    break;
+                case 14:
+
+                    break;
+                case 15:
+                    inf = findINF();
                     break;
             }
             needMenu = true;
@@ -104,6 +114,9 @@ public class MenuLoader {
         System.out.println();
         System.out.println("        12. auto insert ATM");
         System.out.println("        13. find ATM");
+        System.out.println();
+        System.out.println("        14. auto insert INF");
+        System.out.println("        15. find INF");
     }
 
     public static Person createPerson(Person person) {
@@ -280,6 +293,27 @@ public class MenuLoader {
         }
         System.out.print(atm);
         return atm;
+    }
+
+    public static INF findINF() {
+        System.out.println("Get by Id. Please enter user id:");
+        System.out.print("Id - ");
+        Scanner scanner = new Scanner(System.in);
+
+        INF inf = new INF();
+
+        Integer id = scanner.nextInt();
+        try {
+            inf = getInfDao().get(id);
+        } catch (DaoException e) {
+
+            log.error(e, e);
+        } catch (NullPointerException e) {
+            log.error("Unable find person:", e);
+        }
+        System.out.print(inf);
+
+        return inf;
     }
 
     public static Person loadPerson() {

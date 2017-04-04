@@ -17,10 +17,10 @@ import static by.academy.it.loader.MenuLoader.getAtmDao;
  * Created by Sukora Stas.
  */
 public class AutoInsert {
-    private static final String path = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
 
 
-    public void Insert() throws Exception {
+
+    public void Insert(String path) throws Exception {
         ATM atm = null;
         try {
             FileInputStream input = new FileInputStream(path);
