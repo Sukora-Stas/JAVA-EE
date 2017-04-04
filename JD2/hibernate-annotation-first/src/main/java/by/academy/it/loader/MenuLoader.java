@@ -80,13 +80,14 @@ public class MenuLoader {
                     break;
                 case 12:
                     AutoInsert insert = new AutoInsert();
-                    insert.Insert(pathATM);
+                    insert.Insert(pathATM, 1);
                     break;
                 case 13:
                     atm = findATM();
                     break;
                 case 14:
-
+                    AutoInsert insert2 = new AutoInsert();
+                    insert2.Insert(pathINF, 2);
                     break;
                 case 15:
                     inf = findINF();

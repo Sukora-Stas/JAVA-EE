@@ -16,17 +16,17 @@ public class INF implements Serializable {
     private Integer id;
     @Column(name = "БИК")
     private Integer BIK;
-    @Column(name = "наименование подразделения")
+    @Column(name = "наименование_подразделения")
     private String Names_of_divisions;
     @Column(name = "регион")
     private String Region;
-    @Column(name = "населённый пункт")
+    @Column(name = "населённый_пункт")
     private String Locality;
-    @Column(name = "адрес установки")
+    @Column(name = "адрес_установки")
     private String Addres;
-    @Column(name = "место установки")
+    @Column(name = "место_установки")
     private String Position;
-    @Column(name = "время работы")
+    @Column(name = "время_работы")
     private String WorkingTime;
     @Column(name = "cash-in")
     private Boolean Cash_in;
