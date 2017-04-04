@@ -14,9 +14,9 @@ public class ATM implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
+    @Column(name = "БИК")
     private Integer BIK;
-    @Column
+    @Column(name = "наименование подразделения")
     private String Names_of_divisions;
     @Column
     private String Region;
