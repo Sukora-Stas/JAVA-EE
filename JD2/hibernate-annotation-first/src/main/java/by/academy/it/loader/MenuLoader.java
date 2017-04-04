@@ -150,7 +150,7 @@ public class MenuLoader {
                                 String addres,
                                 String position,
                                 String workingTime,
-                                String issuance_of_currency,
+                                Boolean issuance_of_currency,
                                 String terminal_ID,
                                 String coordinats
     ) throws Exception {
@@ -172,7 +172,7 @@ public class MenuLoader {
 
         atm.setWorkingTime(workingTime);
 
-        atm.setIssuance_of_currency(Boolean.valueOf(issuance_of_currency));
+        atm.setIssuance_of_currency(issuance_of_currency);
 
         atm.setTerminal_ID(terminal_ID);
 

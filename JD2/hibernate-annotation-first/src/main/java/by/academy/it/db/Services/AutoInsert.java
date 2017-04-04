@@ -19,6 +19,7 @@ import static by.academy.it.loader.MenuLoader.getAtmDao;
 public class AutoInsert {
     private static final String path = "C:\\Users\\stasi\\Downloads\\www_ATM.xls";
 
+
     public void Insert() throws Exception {
         ATM atm = null;
         try {
@@ -45,7 +46,7 @@ public class AutoInsert {
 
                 String workanme = row.getCell(6).getStringCellValue();
 
-                String valuta = row.getCell(7).getStringCellValue();
+                Boolean valuta = Boolean.valueOf(row.getCell(7).getStringCellValue());
 
                 String terminal = row.getCell(8).getStringCellValue();
 
