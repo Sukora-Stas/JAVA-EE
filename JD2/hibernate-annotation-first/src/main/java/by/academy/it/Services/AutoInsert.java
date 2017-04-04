@@ -29,7 +29,7 @@ public class AutoInsert {
             workbook = WorkbookFactory.create(fs);
             Sheet sheet = workbook.getSheetAt(0);
             Row row;
-            for (int i = 2; i <= sheet.getLastRowNum(); i++) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = (Row) sheet.getRow(i);
 
                 String bik = row.getCell(0).getStringCellValue();

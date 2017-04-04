@@ -17,6 +17,7 @@
         <mapping class="by.academy.it.pojos.Person"/>
         <mapping class="by.academy.it.pojos.User"/>
         <mapping class="by.academy.it.pojos.ATM"/>
+        <mapping class="by.academy.it.pojos.INF"/>
     </session-factory>
 </hibernate-configuration>
 
