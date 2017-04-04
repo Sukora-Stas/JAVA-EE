@@ -1,4 +1,4 @@
-package by.academy.it.db.Services;
+package by.academy.it.Services;
 
 import by.academy.it.pojos.ATM;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;

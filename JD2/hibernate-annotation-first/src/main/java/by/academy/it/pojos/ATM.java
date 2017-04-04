@@ -18,21 +18,21 @@ public class ATM implements Serializable {
     private Integer BIK;
     @Column(name = "наименование подразделения")
     private String Names_of_divisions;
-    @Column
+    @Column(name = "регион")
     private String Region;
-    @Column
+    @Column(name = "населённый пункт")
     private String Locality;
-    @Column
+    @Column(name = "адрес установки")
     private String Addres;
-    @Column
+    @Column(name = "место установки")
     private String Position;
-    @Column
+    @Column(name = "время работы")
     private String WorkingTime;
-    @Column
+    @Column(name = "выдача валюты")
     private Boolean Issuance_of_currency;
-    @Column
+    @Column(name = "Terminal_ID")
     private String Terminal_ID;
-    @Column
+    @Column(name = "координаты")
     private String Coordinats;
 
     public ATM() {

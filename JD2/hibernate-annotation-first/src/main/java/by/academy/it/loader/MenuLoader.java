@@ -2,7 +2,7 @@ package by.academy.it.loader;
 
 import by.academy.it.db.AtmDao;
 import by.academy.it.db.PersonDao;
-import by.academy.it.db.Services.AutoInsert;
+import by.academy.it.Services.AutoInsert;
 import by.academy.it.db.UserDao;
 import by.academy.it.db.exceptions.DaoException;
 import by.academy.it.pojos.ATM;

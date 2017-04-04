@@ -21,7 +21,7 @@ public class BaseDao<T> implements Dao<T> {
 
     }
 
-    public void saveOrUpdate(T t) throws DaoException{
+    public void saveOrUpdate(T t) throws DaoException {
         try {
             Session session = PersonLoader.util.getSession();
             transaction = session.beginTransaction();
@@ -30,7 +30,7 @@ public class BaseDao<T> implements Dao<T> {
             transaction.commit();
             log.info("Save or update (commit):" + t);
         } catch (HibernateException e) {
-            log.error("Error save or update PERSON in Dao" + e);
+            log.error("Error save or update " + t + " in Dao" + e);
             transaction.rollback();
             throw new DaoException(e);
         }
@@ -80,7 +80,7 @@ public class BaseDao<T> implements Dao<T> {
             transaction.commit();
             log.info("Delete:" + t);
         } catch (HibernateException e) {
-            log.error("Error save or update PERSON in Dao" + e);
+            log.error("Error save or update " + t + " in Dao" + e);
             transaction.rollback();
             throw new DaoException(e);
         }
