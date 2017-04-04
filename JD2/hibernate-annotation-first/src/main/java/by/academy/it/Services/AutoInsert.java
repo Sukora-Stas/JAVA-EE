@@ -24,7 +24,7 @@ public class AutoInsert {
     public void Insert(String path, int number) throws Exception {
         ATM atm = null;
         INF inf = null;
-        String Svaluta = null;
+        //String Svaluta = null;
 
         Boolean valuta = null;
         try {
@@ -75,12 +75,12 @@ public class AutoInsert {
                 }
                 if (2 == number) {
                     if ("да".equals(s)) {
-                        Svaluta = "да";
+                        valuta = true;
                     } else if ("нет".equals(s)) {
-                        Svaluta = "нет";
+                        valuta = false;
                     }
                     inf = null;
-                    inf = createINF(inf, bik, namesofdivisions, reg, loc, addr, pos, workanme, Svaluta, terminal, coord);
+                    inf = createINF(inf, bik, namesofdivisions, reg, loc, addr, pos, workanme, valuta, terminal, coord);
                     getInfDao().saveOrUpdate(inf);
                 }
 

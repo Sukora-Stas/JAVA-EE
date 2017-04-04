@@ -29,17 +29,17 @@ public class INF implements Serializable {
     @Column
     private String WorkingTime;
     @Column
-    private String Cash_in;
+    private Boolean Cash_in;
     @Column
     private String Terminal_ID;
     @Column
     private String Coordinats;
 
-    public INF(){
+    public INF() {
 
     }
 
-    public INF(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, String cash_in, String terminal_ID, String coordinats) {
+    public INF(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, Boolean cash_in, String terminal_ID, String coordinats) {
         this.BIK = BIK;
         Names_of_divisions = names_of_divisions;
         Region = region;
@@ -120,11 +120,11 @@ public class INF implements Serializable {
         WorkingTime = workingTime;
     }
 
-    public String getCash_in() {
+    public Boolean getCash_in() {
         return Cash_in;
     }
 
-    public void setCash_in(String cash_in) {
+    public void setCash_in(Boolean cash_in) {
         Cash_in = cash_in;
     }
 

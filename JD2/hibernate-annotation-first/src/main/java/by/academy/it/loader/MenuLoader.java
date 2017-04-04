@@ -168,7 +168,7 @@ public class MenuLoader {
                                 String addres,
                                 String position,
                                 String workingTime,
-                                String issuance_of_currency,
+                                Boolean issuance_of_currency,
                                 String terminal_ID,
                                 String coordinats
     ) throws Exception {
