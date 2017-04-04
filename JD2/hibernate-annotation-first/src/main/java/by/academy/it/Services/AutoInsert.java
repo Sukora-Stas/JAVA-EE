@@ -7,11 +7,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.hibernate.Session;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 
 import static by.academy.it.loader.MenuLoader.*;
+import static by.academy.it.loader.PersonLoader.util;
 
 /**
  * Created by Sukora Stas.
@@ -22,6 +24,9 @@ public class AutoInsert {
     public void Insert(String path, int number) throws Exception {
         ATM atm = null;
         INF inf = null;
+        String Svaluta = null;
+
+        Boolean valuta = null;
         try {
             FileInputStream input = new FileInputStream(path);
             POIFSFileSystem fs = new POIFSFileSystem(input);
@@ -46,18 +51,36 @@ public class AutoInsert {
 
                 String workanme = row.getCell(6).getStringCellValue();
 
-                Boolean valuta = Boolean.valueOf(row.getCell(7).getStringCellValue());
+//                Boolean valuta = Boolean.valueOf(row.getCell(7).getStringCellValue());
+
+                String s = row.getCell(7).getStringCellValue();
+
+//                System.out.println("valute=  "+valuta);
+
+//                System.out.println("TEST outPut"+s);
 
                 String terminal = row.getCell(8).getStringCellValue();
 
                 String coord = row.getCell(9).getStringCellValue();
                 if (1 == number) {
+                    if ("1".equals(s)) {
+                        valuta = true;
+                    } else if ("0".equals(s)) {
+                        valuta = false;
+                    }
+//                    Session session = util.getSession();
                     atm = null;
                     atm = createATM(atm, bik, namesofdivisions, reg, loc, addr, pos, workanme, valuta, terminal, coord);
                     getAtmDao().saveOrUpdate(atm);
-                } else if (2 == number) {
+                }
+                if (2 == number) {
+                    if ("да".equals(s)) {
+                        Svaluta = "да";
+                    } else if ("нет".equals(s)) {
+                        Svaluta = "нет";
+                    }
                     inf = null;
-                    inf = createINF(inf, bik, namesofdivisions, reg, loc, addr, pos, workanme, valuta, terminal, coord);
+                    inf = createINF(inf, bik, namesofdivisions, reg, loc, addr, pos, workanme, Svaluta, terminal, coord);
                     getInfDao().saveOrUpdate(inf);
                 }
 

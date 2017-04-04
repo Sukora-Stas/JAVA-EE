@@ -1,5 +1,6 @@
 package by.academy.it.loader;
 import by.academy.it.pojos.ATM;
+import by.academy.it.pojos.INF;
 import by.academy.it.pojos.Person;
 import by.academy.it.pojos.User;
 import by.academy.it.util.HibernateUtil;
@@ -21,6 +22,7 @@ public class PersonLoader {
         User user = new User(19,"Stas","Sukora","Igorevich");
 
         ATM atm = new ATM();
+        INF inf =new INF();
 
         Session session = util.getSession();
         session.saveOrUpdate(person);

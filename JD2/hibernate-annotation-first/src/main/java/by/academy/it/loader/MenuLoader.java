@@ -32,6 +32,7 @@ public class MenuLoader {
         User user = null;
         ATM atm = null;
         INF inf = null;
+        AutoInsert insert = new AutoInsert();
         while (needMenu) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
@@ -79,15 +80,15 @@ public class MenuLoader {
                     flushSessionUser();
                     break;
                 case 12:
-                    AutoInsert insert = new AutoInsert();
+
                     insert.Insert(pathATM, 1);
                     break;
                 case 13:
                     atm = findATM();
                     break;
                 case 14:
-                    AutoInsert insert2 = new AutoInsert();
-                    insert2.Insert(pathINF, 2);
+//                    AutoInsert insert2 = new AutoInsert();
+                    insert.Insert(pathINF, 2);
                     break;
                 case 15:
                     inf = findINF();
@@ -167,7 +168,7 @@ public class MenuLoader {
                                 String addres,
                                 String position,
                                 String workingTime,
-                                Boolean issuance_of_currency,
+                                String issuance_of_currency,
                                 String terminal_ID,
                                 String coordinats
     ) throws Exception {

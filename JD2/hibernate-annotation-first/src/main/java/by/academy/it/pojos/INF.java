@@ -14,32 +14,32 @@ public class INF implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "БИК")
+    @Column
     private Integer BIK;
-    @Column(name = "наименование_подразделения")
+    @Column
     private String Names_of_divisions;
-    @Column(name = "регион")
+    @Column
     private String Region;
-    @Column(name = "населённый_пункт")
+    @Column
     private String Locality;
-    @Column(name = "адрес_установки")
+    @Column
     private String Addres;
-    @Column(name = "место_установки")
+    @Column
     private String Position;
-    @Column(name = "время_работы")
+    @Column
     private String WorkingTime;
-    @Column(name = "cash-in")
-    private Boolean Cash_in;
-    @Column(name = "Terminal_ID")
+    @Column
+    private String Cash_in;
+    @Column
     private String Terminal_ID;
-    @Column(name = "координаты")
+    @Column
     private String Coordinats;
 
     public INF(){
 
     }
 
-    public INF(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, Boolean cash_in, String terminal_ID, String coordinats) {
+    public INF(Integer BIK, String names_of_divisions, String region, String locality, String addres, String position, String workingTime, String cash_in, String terminal_ID, String coordinats) {
         this.BIK = BIK;
         Names_of_divisions = names_of_divisions;
         Region = region;
@@ -120,11 +120,11 @@ public class INF implements Serializable {
         WorkingTime = workingTime;
     }
 
-    public Boolean getCash_in() {
+    public String getCash_in() {
         return Cash_in;
     }
 
-    public void setCash_in(Boolean cash_in) {
+    public void setCash_in(String cash_in) {
         Cash_in = cash_in;
     }
 
