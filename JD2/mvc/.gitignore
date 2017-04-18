@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+dao/
+mvc.iml
+pom.xml
+script/
+services/
+src/
+web/
