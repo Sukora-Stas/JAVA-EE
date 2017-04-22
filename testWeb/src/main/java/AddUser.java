@@ -31,7 +31,7 @@ public class AddUser extends Dispatcher {
             if (res) {
                 this.forward("/successRegistration.jsp", request, response);
             } else {
-                this.forward("/errorRegistration.html", request, response);
+                this.forward("/errorRegistration.jsp", request, response);
             }
         } else if (request.getParameter("cancel")!=null){
             this.forward("/login.html", request, response);

@@ -18,6 +18,6 @@ Email: <%= user.getEmail()%><br>
 Адрес: <%= user.getAddress()%><br>
 Телефон: <%= user.getPhone()%><br>
 Зарегистрирован.<br><br>
-<a href="login.html">Войти в систему</a>
+<a href="login.jsp">Войти в систему</a>
 </body>
 </html>

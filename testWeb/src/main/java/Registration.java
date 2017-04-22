@@ -17,7 +17,7 @@ public class Registration extends Dispatcher {
         if (request.getParameter("login")!=null){
             this.forward("/CheckUser", request, response);
         } else if (request.getParameter("registration")!=null) {
-            this.forward("/registration.html", request, response);
+            this.forward("/registration.jsp", request, response);
         }
     }
 }
