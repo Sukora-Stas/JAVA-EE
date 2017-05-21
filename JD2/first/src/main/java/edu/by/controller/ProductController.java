@@ -17,6 +17,24 @@ public class ProductController {
         List<Product> products = new ArrayList<>();
         products.add(new Product(1L, "Audi", "rs6", 99000.0));
         products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
+        products.add(new Product(1L, "Audi", "rs6", 99000.0));
+        products.add(new Product(1L, "Mazda", "6", 15000.4));
         return products;
     }
 }
